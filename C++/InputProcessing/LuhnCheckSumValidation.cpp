@@ -17,17 +17,13 @@ int main()
     int evenSum = 0;
     int oddSum = 0;
     int position = 1;
-    /*while(true)
-    {
-        digit = cin.get();
-        cout << int(digit) << " ";
-    }*/
+    
     digit = cin.get();
-    while(digit != 10)
+    while(digit != 10)//problem 1: reach the end of number
     {
-        if(position % 2 == 0)
+        if(position % 2 == 0)//problem 3: know which number will be doubled
         {
-            oddSum += doubleValue(digit - '0');
+            oddSum += doubleValue(digit - '0');//problem 4: double value using luhn-conver char to int
             evenSum += digit - '0';
         }
         else
@@ -38,7 +34,7 @@ int main()
         position++;
         cout << "oddSum: " << oddSum << "\n";
         cout << "evenSum: " << evenSum << "\n";
-        digit = cin.get();
+        digit = cin.get();//problem 2: read each number separately
     }
     int finalSum = 0;
     if((position -1) % 2 == 0)
@@ -52,13 +48,5 @@ int main()
         cout << "Valid\n";
     else
         cout << "Invalid\n";
-    //1: know number to double
-    //int sum = digit;
-    
-    //cout << "Sum: " << sum;
-    //2: treating double number as individual numbers
-    //3: reach the end
-    //4: reading each number separately 
-
     return 0;
 }
