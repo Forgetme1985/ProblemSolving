@@ -50,7 +50,7 @@ void concatenate(arrayStr& str1,arrayStr& str2)
     delete[] str2;
     str1 = newStr;
 }
-void subString(arrayStr& str,int startPos, int len)
+void removeString(arrayStr& str,int startPos, int len)
 {
 
     int oldLen = length(str);
@@ -65,6 +65,30 @@ void subString(arrayStr& str,int startPos, int len)
             newStr[i] = str[i];
         }
         else if(i >= offSet)
+        {
+            cout << "i: " << i << endl;
+            newStr[i - len] = str[i];
+        }
+    }
+    newStr[newLen + 1] = 0;
+    delete[] str;
+    str = newStr;
+}
+void subString(arrayStr& str,int startPos, int len)
+{
+
+    int oldLen = length(str);
+    int newLen = oldLen - len;
+    arrayStr newStr = new char[newLen + 1];
+    int offSet = startPos + len;
+    for(int i = 0; i < oldLen;i++)
+    {
+        if(i >= startPos)
+        {
+            cout << "i: " << i << endl;
+            newStr[i] = str[i];
+        }
+        else if(i < offSet)
         {
             cout << "i: " << i << endl;
             newStr[i - len] = str[i];
