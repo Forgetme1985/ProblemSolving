@@ -181,9 +181,8 @@ int main()
     s.addRecord(stu3);
     s.addRecord(stu2);
     s.addRecord(stu1);
-    
-   
+    studentCollection s2 = s;  
     s.removeRecord(4875);
-   
+    cout << s2.recordWithNumber(4875).name() << endl;
     return 0;
 }
