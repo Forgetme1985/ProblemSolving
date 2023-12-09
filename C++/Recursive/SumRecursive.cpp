@@ -9,6 +9,13 @@ int arraySumRecursive(int values[], int size)
     int sum = arraySumRecursive(values,size - 1);
     return lastNumber + sum;
 }
+int arraySumPosRecursive(int values[], int size)
+{
+    if(size == 0) return 0;
+    int lastNumber = values[size - 1] > 0? values[size - 1]: 0;
+    int sum = arraySumPosRecursive(values,size - 1);
+    return lastNumber + sum;
+}
 int zeroCount(int values[],int size)
 {
     if(size == 0) return 0;
@@ -18,10 +25,10 @@ int zeroCount(int values[],int size)
 }
 int main()
 {
-    int arr[] = {1,3,3,5,6};
-    cout << arraySumRecursive(arr,5) << endl;
-    int arrZero[]= {0,1,0,4,0};
-    cout << zeroCount(arrZero,5) << endl;
+    int arr[] = {-1,3,3,-5,6};
+    cout << arraySumPosRecursive(arr,5) << endl;
+   // int arrZero[]= {0,1,0,4,0};
+  //  cout << zeroCount(arrZero,5) << endl;
 
     return 0;
 }
